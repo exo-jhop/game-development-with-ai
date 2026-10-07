@@ -1,0 +1,12 @@
+78098b89c88a74ebe8c20117b8754620
+::res://::1791374744
+icon.svg::CompressedTexture2D::4559924129238481914::1791374677::1791374745::1::::<><><>0<>0<>bf36e6c56c722c114f4d4dfcdaf97fde<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+::res://assets/::1791374633
+::res://resources/::1791374633
+::res://scenes/::1791374673
+Hazard.tscn::PackedScene::319031149::1791374663::0::1::::<><><>0<>0<><>::res://scripts/hazard.gd
+Main.tscn::PackedScene::471933::1791374673::0::1::::<><><>0<>0<><>::uid://player::::res://scenes/Player.tscn<>uid://ha0ard::::res://scenes/Hazard.tscn
+Player.tscn::PackedScene::696258953::1791374659::0::1::::<><><>0<>0<><>::res://scripts/player.gd
+::res://scripts/::1791374653
+hazard.gd::GDScript::2303161118058460681::1791374653::0::1::::<>Area2D<><>0<>0<><>::
+player.gd::GDScript::6060310806054865652::1791374649::0::1::::<>CharacterBody2D<><>0<>0<><>::
