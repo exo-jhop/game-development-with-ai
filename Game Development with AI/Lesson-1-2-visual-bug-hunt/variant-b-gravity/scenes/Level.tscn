@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://vb_level"]
+
+[ext_resource type="PackedScene" uid="uid://vb_player" path="res://scenes/Player.tscn" id="1_player"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
+size = Vector2(1280, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ledge"]
+size = Vector2(256, 24)
+
+[node name="Level" type="Node2D"]
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(640, 696)
+
+[node name="Sprite" type="ColorRect" parent="Ground"]
+offset_left = -640.0
+offset_top = -16.0
+offset_right = 640.0
+offset_bottom = 16.0
+color = Color(0.35, 0.28, 0.18, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+shape = SubResource("RectangleShape2D_ground")
+
+[node name="Ledge" type="StaticBody2D" parent="."]
+position = Vector2(880, 540)
+
+[node name="Sprite" type="ColorRect" parent="Ledge"]
+offset_left = -128.0
+offset_top = -12.0
+offset_right = 128.0
+offset_bottom = 12.0
+color = Color(0.35, 0.28, 0.18, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ledge"]
+shape = SubResource("RectangleShape2D_ledge")
+
+[node name="Player" parent="." instance=ExtResource("1_player")]
+position = Vector2(160, 648)
