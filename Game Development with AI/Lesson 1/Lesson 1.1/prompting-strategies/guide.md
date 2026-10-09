@@ -1,4 +1,4 @@
-# Lesson 1.3: Prompting Strategies for Game Dev
+# Lesson 1.1: Prompting Strategies for Game Dev
 
 ## What You'll Learn
 

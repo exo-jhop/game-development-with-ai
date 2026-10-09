@@ -92,7 +92,7 @@ Your enemy should take damage when the player's sword hits it. You have a sword 
 ---
 
 ## Bonus: Write Your Own Scenario
-Think of a real situation you've faced (or might face) while building your game from Lesson 1.2. Write it as a scenario, pick the tool, and write the prompt.
+Think of a real situation you've faced (or might face) while building your game from Lesson 1.3. Write it as a scenario, pick the tool, and write the prompt.
 
 **Scenario:**
 

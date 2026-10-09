@@ -1,4 +1,4 @@
-# Lesson 1.2: Setting Up an AI-Assisted Workflow
+# Lesson 1.3: Setting Up an AI-Assisted Workflow
 
 ## What You'll Learn
 
