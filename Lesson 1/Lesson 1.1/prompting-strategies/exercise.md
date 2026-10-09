@@ -11,8 +11,8 @@ There are no trick questions. Some may feel obvious — that's fine. The goal is
 
 ---
 
-## Scenario 1: New player script
-You're starting a new Godot 4 project. You need a player character that moves left and right and can jump. You haven't written any code yet.
+## Scenario 1: New player character
+You're starting a new Godot 4 project from the starter template. You need a player character that moves left and right and can jump. Nothing has been built yet.
 
 **Tool:** _____________
 **Your prompt:**
@@ -32,7 +32,7 @@ You want to see what your player character could look like. Your game is a pixel
 ---
 
 ## Scenario 3: Bug — player won't jump
-Your player moves left and right fine, but pressing Space does nothing. You have the player.gd script open.
+Your player moves left and right fine, but pressing Space does nothing. You notice the Output panel in Godot shows a red error message when you press Space.
 
 **Tool:** _____________
 **Your prompt:**
@@ -61,8 +61,8 @@ Your game has coins the player can touch. You want to add a score that goes up w
 
 ---
 
-## Scenario 6: Script is getting messy
-Your player.gd is 200 lines long. It handles movement, combat, inventory, and UI updates all in one file. It works but it's getting hard to follow.
+## Scenario 6: Your game has gotten tangled
+Your game has grown a lot of features over several sessions — movement, combat, inventory, UI, all added bit by bit. Lately, when you ask the AI to change something in one area, it keeps affecting something in a completely different area, and features that used to work start breaking.
 
 **Tool:** _____________
 **Your prompt:**
@@ -81,8 +81,8 @@ You need ideas for what the enemies in your game could look like. The game is a 
 
 ---
 
-## Scenario 8: Two scripts don't talk to each other
-Your enemy should take damage when the player's sword hits it. You have a sword Area2D on the player and a `take_damage()` function on the enemy, but nothing happens on contact.
+## Scenario 8: Attack isn't doing anything
+Your player can swing a sword, and it visually touches the enemy, but the enemy doesn't react at all — no damage, no flinch, nothing happens on contact. The sword should damage the enemy when it connects.
 
 **Tool:** _____________
 **Your prompt:**
@@ -106,7 +106,8 @@ Think of a real situation you've faced (or might face) while building your game 
 ## When You're Done
 
 Review your prompts. Check each one against these criteria:
-- [ ] Does it name the engine and language? (for code prompts)
+- [ ] Does it name the engine? (for code prompts, mention Godot 4)
 - [ ] Does it describe what you want specifically, not vaguely?
 - [ ] Is it asking for one thing, not five?
 - [ ] Would someone reading it know exactly what you expect back?
+- [ ] If it's a bug, does it describe the symptom — and include the exact error text, if Godot showed one?

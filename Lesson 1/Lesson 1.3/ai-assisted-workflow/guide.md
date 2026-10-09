@@ -18,14 +18,16 @@ Every iteration follows four steps:
 ┌──────────┐     ┌──────────┐     ┌──────────┐     ┌──────────┐
 │  PROMPT  │ ──▶ │  REVIEW  │ ──▶ │   TEST   │ ──▶ │  COMMIT  │
 │          │     │          │     │          │     │          │
-│ Describe │     │ Read the │     │ Run it   │     │ Save it  │
-│ what you │     │ code it  │     │ in Godot │     │ with git │
-│ want     │     │ gave you │     │          │     │          │
+│ Describe │     │ Playtest │     │ Run it   │     │ Save it  │
+│ what you │     │ the      │     │ in Godot │     │ with git │
+│ want     │     │ result   │     │          │     │          │
 └──────────┘     └──────────┘     └──────────┘     └──────────┘
       ▲                                                  │
       └──────────────────────────────────────────────────┘
                      repeat for each feature
 ```
+
+**REVIEW means playtesting the result, not reading code.** You are the director — you never need to open a script or inspect what the AI wrote. REVIEW is where you actually play what was just built and judge it against your spec: does it match what you asked for, and does it feel right? TEST, right after, is where you run the full game to make sure nothing else broke. Together they're your only checkpoint before you commit.
 
 ---
 
@@ -36,7 +38,7 @@ Before you start, make sure you have:
 - [ ] Godot 4 installed and working
 - [ ] An AI coding tool ready (Claude Code, ChatGPT, or similar)
 - [ ] Git installed (`git --version` in terminal to check)
-- [ ] A folder for your project
+- [ ] The instructor-provided Godot 4 starter template copied into your project folder
 
 ---
 
@@ -51,6 +53,8 @@ Open your AI tool and use a prompt like this:
 > - No menus, no levels, just one playable scene
 > - Placeholder art only (colored rectangles are fine)
 >
+> Target Godot 4.x syntax only. Do not use deprecated Godot 3 APIs.
+>
 > Write it as a short spec document I can follow to build it.
 
 The AI will generate a spec. Read through it and make sure:
@@ -64,16 +68,20 @@ Save the spec into your `spec-template.md` file (fill in the template with what 
 
 ---
 
-## Step 1: Initialize Your Project
+## Step 1: Start from the Starter Template
 
-Create a new Godot 4 project for your game. Then initialize git:
+Don't start from a blank project. Copy the instructor-provided Godot 4 starter template into your project folder — it has a fixed, known structure already in place, so the AI always has reliable context about what exists without you needing to describe or understand it.
+
+If the template doesn't already have git set up, initialize it once at the start:
 
 ```bash
 cd your-project-folder
 git init
-git add project.godot
-git commit -m "Initial project setup"
+git add .
+git commit -m "Start from starter template"
 ```
+
+If git is already initialized in the template, just confirm it with `git status` and move on.
 
 ---
 
@@ -83,14 +91,14 @@ Now build your game feature by feature. Each feature is one loop iteration.
 
 ### Iteration 1: Player movement
 
-**PROMPT** — Ask the AI to create the player scene and movement script based on your spec.
+**PROMPT** — Ask the AI to build the player and movement based on your spec. Include the Godot 4.x lock-in line: "Target Godot 4.x syntax only. Do not use deprecated Godot 3 APIs."
 
-**REVIEW** — Read the code it gives you before adding it to your project. Ask yourself:
+**REVIEW** — Playtest it. Ask yourself:
 - Does it match what my spec says?
-- Do I roughly understand what each part does?
-- If something looks wrong, ask the AI to explain it
+- Does the movement feel the way I pictured it — right speed, right responsiveness?
+- If something feels off, describe what's off to the AI and ask it to adjust
 
-**TEST** — Add the files to your Godot project. Press F5 to run. Does the player move the way you expected?
+**TEST** — Press F5 to run the full project. Does the player move the way you expected? Does everything else still work?
 
 **COMMIT** — If it works:
 ```bash
@@ -102,9 +110,9 @@ git commit -m "Add player with basic movement"
 
 **PROMPT** — Ask the AI to add the main gameplay element from your spec (items to collect, obstacles to dodge, a target to reach, etc.)
 
-**REVIEW** — Read the new code. Does it connect to the player correctly?
+**REVIEW** — Playtest the new feature. Does it do what your spec describes? Does it interact correctly with the player — for example, does touching it actually trigger the effect you expected?
 
-**TEST** — Run the project. Try the mechanic. Does it work? Does it feel right?
+**TEST** — Run the project. Try the mechanic several times. Does it work consistently? Does it feel right?
 
 **COMMIT** — If it works:
 ```bash
@@ -116,15 +124,23 @@ git commit -m "Add [your mechanic here]"
 
 **PROMPT** — Ask the AI to add a score display, a "you win" message, or whatever feedback your spec describes.
 
-**REVIEW** — Check the UI code. Is it reading from the right variables?
+**REVIEW** — Playtest it. Does the feedback appear at the right moment? Does it show the right information (correct score, right message)?
 
-**TEST** — Play through the whole thing. Does the feedback show up at the right time?
+**TEST** — Play through the whole thing start to finish. Does everything connect — does the feedback respond to what's actually happening in the game?
 
 **COMMIT** — If it works:
 ```bash
 git add .
 git commit -m "Add score display and win condition"
 ```
+
+### If something breaks during testing
+
+Don't guess at what went wrong. Describe the symptom, and if Godot's Output or Debugger panel shows a red error message, copy-paste that exact text into your next prompt alongside the symptom:
+
+> Here's what I see: [describe what happened]. Here's the exact error Godot showed: [paste the error text].
+
+You don't need to understand the error — handing it over precisely is what matters.
 
 ---
 
@@ -137,9 +153,9 @@ Fill in the `workflow-log-template.md` with what you did at each step. This is y
 ## Tips
 
 - **Small prompts beat big prompts.** Ask for one feature at a time, not the whole game at once.
-- **If something breaks, describe the symptom.** "The player falls through the floor" is a better prompt than "fix my code."
+- **If something breaks, describe the symptom — and paste the exact error if Godot shows one.** "The player falls through the floor" plus the red error text is far more useful than "fix my code."
 - **Commit after each working feature.** If something breaks later, you can always go back.
-- **You don't need to understand every line.** But you should understand what each file does and how they connect.
+- **Keep a running description of what exists, not an understanding of how it works.** Tell the AI in plain language what's in your game so far — "I have a player that jumps, coins that add to score, and a win screen" — rather than trying to understand the files yourself. The AI handles the how; you track the what.
 - **The AI is your partner, not your boss.** If it suggests something that doesn't match your spec, push back.
 
 ---
