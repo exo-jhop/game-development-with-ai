@@ -15,11 +15,16 @@ Game Development with AI/
     │       ├── variant-a-speed/
     │       ├── variant-b-gravity/
     │       └── variant-c-collision/
-    └── Lesson 1.2/ — AI-Assisted Workflow
-        └── ai-assisted-workflow/          ← Guide + templates
+    ├── Lesson 1.2/ — AI-Assisted Workflow
+    │   └── ai-assisted-workflow/          ← Guide + templates
+    │       ├── guide.md
+    │       ├── spec-template.md
+    │       └── workflow-log-template.md
+    └── Lesson 1.3/ — Prompting Strategies for Game Dev
+        └── prompting-strategies/          ← Guide + cheatsheet + exercise
             ├── guide.md
-            ├── spec-template.md
-            └── workflow-log-template.md
+            ├── prompt-cheatsheet.md
+            └── exercise.md
 ```
 
 ---
@@ -63,6 +68,27 @@ Students learn the core development loop: **Prompt → Review → Test → Commi
 | `guide.md` | Step-by-step walkthrough of the lesson |
 | `spec-template.md` | Template for the game spec students create with AI |
 | `workflow-log-template.md` | Template to document each loop iteration |
+
+---
+
+## Lesson 1.3 — Prompting Strategies for Game Dev
+
+Students learn which AI tool to use for which task, and how to write prompts that get useful results.
+
+### Key Concepts
+- **Code tools** (OpenCode/Claude) for writing GDScript, debugging, planning, refactoring
+- **Asset tools** (Gemini/Google Flow) for sprites, tilesets, UI mockups, color palettes
+- **6 prompting strategies:** Be Specific, One Feature Per Prompt, Describe Symptoms, Share Files, Ask for Explanations, Right Tool for the Job
+
+### Deliverables
+- Completed exercise with tool choices and real prompts for 8 scenarios
+
+### Files
+| File | Purpose |
+|---|---|
+| `guide.md` | Tools overview + prompting strategies with examples |
+| `prompt-cheatsheet.md` | Copy-paste prompt templates by category |
+| `exercise.md` | 8 scenarios where students pick tools and write prompts |
 
 ---
 
